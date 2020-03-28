@@ -1,52 +1,51 @@
-//Ladder--:>k-String
 #include <iostream>
 #include <string>
 using namespace std;
 int main(){
     int x;
+    string inp;
     cin>>x;
-    string s;
-    cin>>s;
-    int p = s.size()/x;
-    char arr1[p];
-    int arr[p];
-    int count =0;
-    char temp =0;
+    cin>>inp;
+    for(int i = 0 ; i < (inp.length()) ;i++){
+         int min = i;
+         for(int j = i+1; j < (inp.length()) ; j++){
+             if(inp[j] < inp[min])
+                min = j;
+         }
+         char lol = inp[i];
+         inp[i] = inp[min];
+         inp[min] = lol;
+    } 
     string ans;
-    int m = 0,n=0;
-    for(int i = 0; s[i] !='\0' ; i++){
-        if(s[i] != '0'){
-        arr1[m] = s[i];
-        m++;
-        temp = s[i];
-        for(int j = i +1; s[j] != '\0';j++ ){
-            if(temp == s[j]){
-               count++;
-               s[j] = '0';
-            }
-        }
-        arr[n] = count + 1;
-        count=0;
-        n++;
+    int count =0 ;
+    int flag=0; 
+    for(int i =0 ; inp[i] != '\0' ; i++){
+       if(inp[i] != '0'){
+          char temp = inp[i];
+          for(int j = i ; inp[j] != '\0' ; j++){
+              if(temp == inp[j]){
+                  count++;
+                  inp[j] = '0';
+              }
           }
+          if(count%x==0){
+            ans +=temp;
+            count=0; 
+          }
+          else{
+              flag =1;
+              break;
+          }
+       } 
     }
-    int flag =0 ;
-    for(int i =0 ; i < p ; i++){
-        if(i+1<p){
-        if(arr[i] != arr[i+1]){
-            flag=1;
-            break;
-        }
-        }
-    }
-    if(flag == 1)
+
+    if(flag==1)
     cout<<-1<<endl;
     else{
         while(x--){
-        for(int i = 0 ; i< p ; i++){
-            cout<<arr1[i];
-        }
+            cout<<ans;
         }
     }
+    
     return 0;
 }
