@@ -17,9 +17,16 @@ int main(){
     int max=0;
     int count1=0;
     for(int i =y-1; i>=0;){
-        if(i-1>=0)
+        if(i-1>=0){
         if(arr1[i]<arr1[i-1])
         i--;
+        else
+        {
+            i = y -1;
+        }
+        
+        }
+        
         if(arr1[i] >0 && count1!=x){
             max +=arr1[i];
             arr1[i]--;
