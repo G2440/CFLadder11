@@ -10,7 +10,7 @@ int main(){
     for(int i =0 ; i < y; i++)
     cin>>s[i];
     for(int i =0; i < y; i++){
-        for(int j =0 ; j < s[i].length() ; j++){
+        for(int j =0 ; s[i][j] != '\0' ; j++){
                  if((i+1)%2!=0){
                  if(s[i][j] == '.'){
                  if(j%2==0)
@@ -33,7 +33,8 @@ int main(){
              }
              }
         }
-    for(int i = 0 ; i < y ; i++)
+    for(int i = 0 ; i<y ; i++){
     cout<<res[i]<<endl;
+    }
     return 0;
 }
