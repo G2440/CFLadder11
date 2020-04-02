@@ -1,40 +1,41 @@
 //Ladder11--:>DZY Loves Chessboard
 #include <iostream>
-#include <string>
 using namespace std ;
 int main(){
     int x, y ;
     cin>>x>>y;
-    string s[y];
-    string res[y];
-    for(int i =0 ; i < y; i++)
-    cin>>s[i];
-    for(int i =0; i < y; i++){
-        for(int j =0 ; s[i][j] != '\0' ; j++){
+    char s[x][y];
+    for(int i =0 ; i < x; i++)
+    for(int j = 0 ; j < y ; j++ )
+    cin>>s[i][j];
+    for(int i =0; i < x; i++){
+        for(int j =0 ; j<y ; j++){
                  if((i+1)%2!=0){
                  if(s[i][j] == '.'){
                  if(j%2==0)
-                 res[i] += 'B';
+                 s[i][j] = 'B';
                  else
-                 res[i] += 'W';
+                 s[i][j] = 'W';
                  }
                  else if(s[i][j] == '-')
-                 res[i] += '-';
+                 s[i][j] = '-';
              }
              else if((i+1)%2==0){
                  if(s[i][j] == '.'){
                  if(j%2!=0)
-                 res[i] += 'B';
+                 s[i][j] = 'B';
                  else
-                 res[i] += 'W';
+                 s[i][j] = 'W';
                  }
                  else if(s[i][j] == '-')
-                 res[i] += '-';
+                 s[i][j] = '-';
              }
              }
         }
-    for(int i = 0 ; i<y ; i++){
-    cout<<res[i]<<endl;
+    for(int i = 0 ; i<x ; i++){
+        for(int j = 0 ; j < y;j++)
+    cout<<s[i][j];
+    cout<<endl;
     }
     return 0;
 }
