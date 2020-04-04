@@ -20,8 +20,8 @@ int main(){
             even++;
             else 
             odd++;
-        }
     }
+        }
 
     if(even >=1 && odd<=1)
     cout<<"First"<<endl;
