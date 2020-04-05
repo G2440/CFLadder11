@@ -1,10 +1,7 @@
 //Ladder11--:>Kitahara Haruki's Gift
-
-#include<iostream>
+#include <iostream>
 using namespace std;
-
 int main(){
-    
     int x;
     cin>>x;
     int arr[2] = {0};
@@ -19,11 +16,29 @@ int main(){
     }
     float a = arr[0];
     float b = arr[1];
-    if(b==(a/2))
+   
+    if(a==0 || b==0){
+      if(a==0 && b!=0){
+          if((int)b % 2 ==0 )
+          cout<<"YES"<<endl;
+          else
+          cout<<"NO"<<endl;
+      }
+      else if(a!=0 && b==0){
+          if((int)a % 2 ==0 )
+          cout<<"YES"<<endl;
+          else
+          cout<<"NO"<<endl;
+      }
+      else
+      cout<<"NO"<<endl;
+    }
+    else{
+    float m = 200*b + 100*a;
+    if(((int)m%200)==0)    
     cout<<"YES"<<endl;
     else
-    cout<<"NO"<<endl;  
-
-
+    cout<<"NO"<<endl;
+    }
     return 0;
 }

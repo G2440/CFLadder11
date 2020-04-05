@@ -32,7 +32,7 @@ int main(){
      }
      else if(s[i] == 'N'){
          if(y1+1<=y2)
-         y1+=1;
+         y1+=1; 
          count++;
          if(x1==x2 && y1==y2)
             break;
