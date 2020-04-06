@@ -1,38 +1,31 @@
 //Ladder11--:>Hungry Sequence
 #include<iostream>
 using namespace std;
-
-int check(int x , int *a,int w);
-
+ 
+ 
+ 
 int main(){
     
-
     int x;
     cin>>x;
     int  i = 2;
+    int count;
+    int p =0;
     int arr[x];
-
-    arr[0] = 2;
-    int a =1;
-    while(a<x){
-       if( check(i,arr,a)){
-           arr[a] = i;
-           i++;
-           a++; 
-       }
-       else
-       i++;
+    while(x>p && i < 10000000){
+    for (int l = 2; l <= i; l++) 
+      if ( i% l == 0) 
+         count++;
+      
+  
+    if(count == 1){
+    arr[p] = i;
+    p++;
     }
-
-    for(int j =0 ; j < x;j++)
-    cout<<arr[j]<<" ";
-    return 0;
-}
-
-int check(int x,int *a,int w){
-    for(int j = 0; j<w;j++)
-    if(x%a[j]==0)
-    return 0;
-    
-   return 1; 
+    count =0;
+    i++;
+    }
+    for(int m=0;m<x;m++)
+    cout<<arr[i]<<" ";
+     return 0;   
 }
