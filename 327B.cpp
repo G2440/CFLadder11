@@ -3,29 +3,29 @@
 using namespace std;
  
  
- 
+int prime(int n); 
+
 int main(){
     
     int x;
     cin>>x;
-    int  i = 2;
-    int count;
+    long long int  i = 2;
     int p =0;
-    int arr[x];
     while(x>p && i < 10000000){
-    for (int l = 2; l <= i; l++) 
-      if ( i% l == 0) 
-         count++;
-      
-  
-    if(count == 1){
-    arr[p] = i;
-    p++;
+        if(prime(i)){
+            cout<<i<<" ";
+            p++;
+        }
+        i++;
     }
-    count =0;
-    i++;
-    }
-    for(int m=0;m<x;m++)
-    cout<<arr[i]<<" ";
+    
      return 0;   
+}
+
+int prime(int n)
+{
+ for (int l = 2; l <= n/2; l+=1) 
+      if ( n% l == 0) 
+           return 0;
+    return 1;          
 }
