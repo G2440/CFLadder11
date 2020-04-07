@@ -9,16 +9,22 @@ int main(){
     
     int x;
     cin>>x;
+    int arr[100000] = {0} ;
     long long int  i = 2;
     int p =0;
     while(x>p && i < 10000000){
         if(prime(i)){
-            cout<<i<<" ";
+            arr[i]++;
             p++;
         }
         i++;
     }
     
+    for(int o =0  ; o < 100000 ;o++){
+        if(arr[o] !=0)
+        cout<<o<<" ";
+    }
+
      return 0;   
 }
 
