@@ -26,16 +26,15 @@ int main(){
     
     if(imin <= cmax)
     cout<<-1<<endl;
-    else
-    {
-        int temp = cmin*2;
-        if(temp <= cmax){
-            if(cmax == imin-1)
-            cout<<cmax<<endl;
-            else  
-            cout<<temp<<endl;
-        }
+    else if(cmax/2 >=cmin){
+        cout<<cmax<<endl;
     }
-    
+    else{
+        int temp = cmin*2;
+        if(temp < imin)
+        cout<<temp<<endl;
+        else  
+        cout<<-1<<endl;
+    }
     return 0;
 }
