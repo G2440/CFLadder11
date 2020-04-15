@@ -1,35 +1,25 @@
-#include<iostream>
-using namespace std;
+#include <cstdio>
 
-int main(){
-    
-    int y, k ,n ;
-    cin>>y>>k>>n;
-
-    if(n-y==0)
-    cout<<-1<<endl;
-    else{
-        int  flag =0 ;
-        int t = n;
-        while(t>y){
-            if(t%k==0){
-                flag =1;
-                break;
-            }
-            t--;
+int main()
+{
+    int y, k, n;
+    scanf("%d%d%d", &y, &k, &n);
+    int x = k - y % k;
+    int top = n - y;
+    if (x <= top)
+    {
+        printf("%d", x);
+        x += k;
+        while (x <= top)
+        {
+            printf(" %d", x);
+            x += k;
         }
-        if(flag == 0)
-        cout<<-1<<endl;
-        else{
-            int p = n-y;
-            for(int i = 1; i<=p;i++){
-                if((y+i) % k==0)
-                cout<<(y+i)<<" ";
-            }
-        }
+        printf("\n");
     }
-
-
+    else
+    {
+        printf("-1\n");
+    }
     return 0;
-
 }
