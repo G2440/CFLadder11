@@ -1,38 +1,37 @@
 #include<iostream>
-#include<cstring>
+#include<string>
 using namespace std;
 
 int main(){
-    int b,g;
+    int b=0,g=0;
     cin>>b>>g;
-    string res;
     int flag =0;
     if(b==g){
         for(int i =0 ; i<(b+g);i++)
         if(flag==0){
-            res+='G';
+            cout<<'G';
             flag=1;
         }
         else if(flag==1){
-            res+='B';
+            cout<<'B';
             flag =0;
         }
     }
-    if(b>g){
+    else if(b>g){
         flag =0;
         int x = b-g;
         int y = x;
         while(y--){
-            res+='B';
+            cout<<'B';
         }
         b = b- x;
         for(int i =0 ; i<(b+g);i++)
         if(flag==0){
-            res+='G';
+            cout<<'G';
             flag=1;
         }
         else if(flag==1){
-            res+='B';
+            cout<<'B';
             flag =0;
         }
     }
@@ -41,20 +40,20 @@ int main(){
         int x = g-b;
         int y = x;
         while(y--)
-        res+='G';
+            cout<<'G';
         g = g- x;
         for(int i =0 ; i<(b+g);i++)
         if(flag==0){
-            res+='B';
+            cout<<'B';
             flag=1;
         }
         else if(flag==1){
-            res+='G';
+            cout<<'G';
             flag =0;
         }
     }
 
-    cout<<res<<endl;
+
 
     return 0;
 }
