@@ -9,26 +9,29 @@ int main(){
     int arr[x];
     for(int i =0 ; i < x; i++)
     cin>>arr[i];
-    int min = 1000000;
-    int flag =0;
-    int sum =0 ;
-    int var =0;
-    for(int i = 0; i < x; i++){
-        sum =0;
-        if(i + y - 1 <x){
-        for(int j = 0 ; j < y;j++){
-            sum +=arr[i+j];   
+    for(int i =0 ; i< x; i++){
+        if(i==0)
+        continue;
+        else{
+            arr[i] = arr[i] + arr[i-1];
         }
-        if(sum<min){
-        min = sum;
-        var  = i+1;
-        }
-        }
-        else
-        break;
     }
-    cout<<var<<endl;
-
-
+    int p = x-y+1;
+    int min = arr[y-1];
+    int ind=1;
+    int ans =1;
+    for(int i =0 ;i<p;i++){
+        if(y+i <x){
+            ind++;
+        if(min>(arr[y+i]-arr[i])){
+        min= arr[y+i] - arr[i];
+        ans = ind; 
+        }
+        }
+        else 
+        break;
+    }    
+   
+    cout<<ans<<endl;
     return 0;
 }
