@@ -1,8 +1,10 @@
 #include<iostream>
-#include<string>
+
 using namespace std;
 
 int main(){
+    freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
     int b=0,g=0;
     cin>>b>>g;
     int flag =0;
