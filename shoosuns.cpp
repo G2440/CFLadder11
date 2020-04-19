@@ -2,43 +2,50 @@
 #include<iostream>
 using namespace std; 
 int main(){
-
-    int x , y;
+    int x,y;
     cin>>x>>y;
     int arr[x];
-    int arr1[100000]= {0};
-    for (int i =0 ;i < x; i++){
+    for(int i =0 ; i < x; i++)
     cin>>arr[i];
-    arr1[arr[i]]++;
-    }
-    int p = arr[y-1];
-    int q = arr[0];
     int flag1 =0;
-    for(int i =0; i < x;i++)
-    if(arr[i] != q)
-    flag1 = 1;
+    int check1 = arr[0];
+    for(int i =0; i < x; i++)
+    if(arr[i] != check1){
+        flag1 =1;
+        break;
+    }
     if(flag1 ==0)
     cout<<0<<endl;
-    else if(x==y)
-    cout<<y-1<<endl;
-    else if(flag1 == 1){
-    int flag =0; 
-    for(int i = y ; i < x;i++)
-    if(arr[i] != p)
-    flag = 1;
-    
-    if(flag == 1)
-    cout<<-1<<endl;
     else{
-        int count =0;
-        for(int i =0 ;i<100000;i++){
-            if(i!=p && arr1[i] !=0)
-            count+=arr1[i];
+        if(x==y)
+        cout<<y-1<<endl;
+        else{
+            int flag2 =0;
+            int check2 = arr[y-1];
+            for(int i = y ; i < x; i++)
+            if(arr[i] != check2){
+                flag2= 1;
+                break;
+            }
+            if(flag2==1)
+            cout<<-1<<endl;
+            else{
+                int cnt=0;
+                int flag =0;
+                int flag3=0;
+                for(int i = y-1; i>=0;i--){
+                    if(flag3==0){
+                        if(arr[i] != check2){
+                            flag3 =1;
+                            flag = 1;
+                        }
+                    }
+                    if(flag==1)
+                    cnt++;
+                }
+                cout<<cnt<<endl;
+            }
         }
-    cout<<count<<endl;
-
-    }  
     }
-
     return 0;
 }
