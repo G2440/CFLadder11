@@ -1,50 +1,26 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
 using namespace std;
-
-bool sortbysecdesc(const pair<int,int> &a, 
-                   const pair<int,int> &b) 
-{      
-       return a.second<b.second;
- 
+    struct data{
+    int x;
+    int y;
+};
+bool scheck(const data& l , const data& r){
+    return l.x > r.x || (l.x == r.x && l.y < r.y);
 }
 int main(){
-    int n ,k ;
+    int n,k;
     cin>>n>>k;
-    vector<pair<int,int>> pairs;
-    int arr1[n] , arr2[n];
-    for (int i =0 ; i < n ;i++){
-    cin>>arr1[i]>>arr2[i];
-    pairs.push_back(make_pair(arr1[i] , arr2[i]));
-    }
-    int count=0;
-    
-    int p =0;
-    int i =0 , j =0;
-    sort(pairs.begin(), pairs.end(),greater<pair<int,int>>());
-    for(int k = 0 ;k < n ; k++)
-    cout<<pairs[k].first<<" "<<pairs[k].second<<endl;
-    int var =0 ;
-    for(int i =0 ;i < n ; i++){
-        p=i;
-       for(int j = i;j<n;j++){
-           if(pairs[i].first == pairs[j].first)
-           var++;
-           else  
-           break;
-       }
-       
-       if(pairs[i].first<pairs[j].first){
-       sort(pairs.begin()+p, pairs.begin()+var+1,sortbysecdesc);
-       }
-       var = p;
-    }
-    int key1 = pairs[k-1].first;
-    int key2 = pairs[k-1].second;
-
-    for (int h=0; h<n; h++)
-    {        
-            if(pairs[h].first == key1 && pairs[h].second==key2)
-            count++;
+    struct data rank[50];
+    for(int i =0 ; i < n ;i++)
+        cin>>rank[i].x>>rank[i].y;
+    sort(rank,rank+n,scheck);
+    int key1 = rank[k-1].x;
+    int key2 = rank[k-1].y;
+    int count =0;
+    for(int i =0 ; i < n; i++){
+        if(rank[i].x== key1 && rank[i].y == key2)
+        count++;
     }
     cout<<count<<endl;
     return 0;
