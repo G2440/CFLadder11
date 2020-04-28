@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #define ll long long
+#define ull unsigned long long
 
 using namespace std;
 
@@ -10,33 +11,23 @@ int main(){
     int arr[x];
     for(int i =0 ; i < x; i++)
     cin>>arr[i];
-    bool arr1[x];
-    for(int i =0 ; i < x;i++)
-    arr1[i] = 1;
     sort(arr,arr+x);  
-    for(int i =0 ; i<x ; i++)
-    if(arr[i] > 0)
-    arr1[i] = 0;
     
-    int count =0;
-    for(int i =0 ; i < x ; i++){
-        if(arr1[i] !=0){
-            if(arr[i] < 0){
-                int temp1 = 0 - arr[i];
-                int temp2 = i + temp2;
+    unsigned long long int count = 0; 
+    for(int i =0 ; i< x; i++){
+        if(arr[i] != i+1){
+            if(arr[i]<0){
+                unsigned long long int temp1 = 0 - arr[i];
+                unsigned long long int temp2 = i+1 + temp1;
                 count += temp2;
-                arr1[i] = 0; 
             }
             else{
-                int temp1 = i - arr[i];
-                count += temp1;
-                arr1[i] = 0;
+                unsigned long long int temp  = abs((i+1) - arr[i]);
+                count += (temp); 
             }
         }
     }
-
     cout<<count<<endl;
-
 
     return 0;
 }
