@@ -12,7 +12,7 @@ int main(){
     cin>>arr1[i]>>arr2[i];
 
     int cnt=0,max =0;
-    int a=0,b=0;
+    int a=-1,b=-1;
     for(int i =0 ; i< x ;i++){
         if(arr1[i] == a && arr2[i] ==b)
         cnt++;
