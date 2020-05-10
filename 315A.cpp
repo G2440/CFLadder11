@@ -11,8 +11,11 @@ int main(){
     cin>>arr1[i]>>arr2[i];
     int p =0;
     for(int i =0;i<x;i++)
-    if(arr1[i] != arr2[i])
+    for(int j =0;j<x;j++)
+    if(arr1[i] == arr2[i] && i!=j){
     p++;
+    break;
+    }
 
     cout<<x-p<<endl;
 
